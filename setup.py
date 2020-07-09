@@ -17,6 +17,6 @@ setup(
     author="Danilo Carlos de Góes Silva",
     author_email="contact@danilocgsilva.me",
     packages=["awsclimock"],
-    entry_points={"console_scripts": ["awsclimock.__main__:main"],},
+    entry_points={"console_scripts": ["awsclimock=awsclimock.__main__:main"],},
     include_package_data=True
 )
