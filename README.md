@@ -18,3 +18,11 @@ After installed, just type:
 awsclimock describe-security-group
 ```
 Then you mock data from security group, in the same format as `aws ec2 describe-security-group`.
+
+You also can mock data for ec2 instances:
+
+```
+awsclimock describe-instances
+```
+
+You will mock data in the format from the `aws ec2 describe-instances`.

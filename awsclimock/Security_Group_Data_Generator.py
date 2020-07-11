@@ -6,7 +6,7 @@ from awsclimock.helpers import get_exadecimal_sample
 
 class Security_Group_Data_Generator:
 
-    def get_ip_permissions(num: int):
+    def get_ip_permissions(self, num: int):
         
         ip_permissions = []
 
@@ -16,11 +16,11 @@ class Security_Group_Data_Generator:
         return ip_permissions
 
 
-    def get_group_id():
+    def get_group_id(self):
         return "sg-" + get_exadecimal_sample(17)
 
 
-    def get_tags(num: int):
+    def get_tags(self, num: int):
 
         tags = []
 
@@ -30,6 +30,6 @@ class Security_Group_Data_Generator:
         return tags
 
 
-    def get_vpc_id() -> str:
+    def get_vpc_id(self) -> str:
         return "vpc-" + get_exadecimal_sample(8)
 

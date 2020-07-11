@@ -1,7 +1,6 @@
 import sys
 from awsclimock.helpers import get_command_to_mock
-from awsclimock.helpers import get_mocked_security_group_data
-from awsclimock.helpers import get_mocked_ec2_data
+from awsclimock.fetcher import get_mocked_security_group_data, get_mocked_ec2_data
 
 def main():
     aws_command = get_command_to_mock()
