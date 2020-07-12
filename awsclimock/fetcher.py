@@ -1,6 +1,6 @@
 from awsclimock.Security_Group_Data_Generator import Security_Group_Data_Generator
 from awsclimock.AWS_General_Entities_Mocker import AWS_General_Entities_Mocker
-from awsclimock.helpers import get_exadecimal_sample, get_mac_address
+from awsclimock.helpers import get_exadecimal_sample, get_mac_address, get_mocked_network_interface_data
 
 def get_mocked_security_group_data() -> dict:
 
@@ -84,40 +84,13 @@ def get_mocked_ec2_data() -> dict:
                         "EnaSupport": True,
                         "Hypervisor": "xen",
                         "NetworkInterfaces": [
-                            {
-                                "Attachment": {
-                                    "AttachTime": "2018-10-18T00:44:48.000Z",
-                                    "AttachmentId": "eni-attach-" + get_exadecimal_sample(17),
-                                    "DeleteOnTermination": True,
-                                    "DeviceIndex": 0,
-                                    "Status": "attached"
-                                },
-                                "Description": "",
-                                "Groups": [
-                                    {
-                                        "GroupName": "default",
-                                        "GroupId": security_group_id
-                                    }
-                                ],
-                                "Ipv6Addresses": [],
-                                "MacAddress": get_mac_address(),
-                                "NetworkInterfaceId": "eni-" + get_exadecimal_sample(17),
-                                "OwnerId": owner_id,
-                                "PrivateDnsName": "ip-" + private_ip.replace(".", "-") + ".ec2.internal",
-                                "PrivateIpAddress": private_ip,
-                                "PrivateIpAddresses": [
-                                    {
-                                        "Primary": True,
-                                        "PrivateDnsName": "ip-" + private_ip.replace(".", "-") + ".ec2.internal",
-                                        "PrivateIpAddress": private_ip
-                                    }
-                                ],
-                                "SourceDestCheck": True,
-                                "Status": "in-use",
-                                "SubnetId": subnet_id,
-                                "VpcId": vpc_id,
-                                "InterfaceType": "interface"
-                            }
+                            get_mocked_network_interface_data(
+                                security_group_id, 
+                                owner_id, 
+                                private_ip,
+                                subnet_id,
+                                vpc_id
+                            )
                         ],
                         "RootDeviceName": "/dev/sda1",
                         "RootDeviceType": "ebs",
@@ -164,3 +137,90 @@ def get_mocked_ec2_data() -> dict:
     }
 
     return data
+
+
+def get_mocked_regions() -> dict:
+    return {
+        "Regions": [
+            {
+                "Endpoint": "ec2.eu-north-1.amazonaws.com",
+                "RegionName": "eu-north-1",
+                "OptInStatus": "opt-in-not-required"
+            },
+            {
+                "Endpoint": "ec2.ap-south-1.amazonaws.com",
+                "RegionName": "ap-south-1",
+                "OptInStatus": "opt-in-not-required"
+            },
+            {
+                "Endpoint": "ec2.eu-west-3.amazonaws.com",
+                "RegionName": "eu-west-3",
+                "OptInStatus": "opt-in-not-required"
+            },
+            {
+                "Endpoint": "ec2.eu-west-2.amazonaws.com",
+                "RegionName": "eu-west-2",
+                "OptInStatus": "opt-in-not-required"
+            },
+            {
+                "Endpoint": "ec2.eu-west-1.amazonaws.com",
+                "RegionName": "eu-west-1",
+                "OptInStatus": "opt-in-not-required"
+            },
+            {
+                "Endpoint": "ec2.ap-northeast-2.amazonaws.com",
+                "RegionName": "ap-northeast-2",
+                "OptInStatus": "opt-in-not-required"
+            },
+            {
+                "Endpoint": "ec2.ap-northeast-1.amazonaws.com",
+                "RegionName": "ap-northeast-1",
+                "OptInStatus": "opt-in-not-required"
+            },
+            {
+                "Endpoint": "ec2.sa-east-1.amazonaws.com",
+                "RegionName": "sa-east-1",
+                "OptInStatus": "opt-in-not-required"
+            },
+            {
+                "Endpoint": "ec2.ca-central-1.amazonaws.com",
+                "RegionName": "ca-central-1",
+                "OptInStatus": "opt-in-not-required"
+            },
+            {
+                "Endpoint": "ec2.ap-southeast-1.amazonaws.com",
+                "RegionName": "ap-southeast-1",
+                "OptInStatus": "opt-in-not-required"
+            },
+            {
+                "Endpoint": "ec2.ap-southeast-2.amazonaws.com",
+                "RegionName": "ap-southeast-2",
+                "OptInStatus": "opt-in-not-required"
+            },
+            {
+                "Endpoint": "ec2.eu-central-1.amazonaws.com",
+                "RegionName": "eu-central-1",
+                "OptInStatus": "opt-in-not-required"
+            },
+            {
+                "Endpoint": "ec2.us-east-1.amazonaws.com",
+                "RegionName": "us-east-1",
+                "OptInStatus": "opt-in-not-required"
+            },
+            {
+                "Endpoint": "ec2.us-east-2.amazonaws.com",
+                "RegionName": "us-east-2",
+                "OptInStatus": "opt-in-not-required"
+            },
+            {
+                "Endpoint": "ec2.us-west-1.amazonaws.com",
+                "RegionName": "us-west-1",
+                "OptInStatus": "opt-in-not-required"
+            },
+            {
+                "Endpoint": "ec2.us-west-2.amazonaws.com",
+                "RegionName": "us-west-2",
+                "OptInStatus": "opt-in-not-required"
+            }
+        ]
+    }

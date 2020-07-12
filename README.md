@@ -26,3 +26,11 @@ awsclimock describe-instances
 ```
 
 You will mock data in the format from the `aws ec2 describe-instances`.
+
+Can mock data from regions:
+
+```
+awsclimock describe-regions
+```
+
+Will split format as the command `aws ec2 describe-regions`. Here we have not concerns to privacy or sensitive information, so the mocked data is exactly the same as the real command will return, unless some update in the region.

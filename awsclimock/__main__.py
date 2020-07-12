@@ -1,6 +1,6 @@
 import sys
 from awsclimock.helpers import get_command_to_mock
-from awsclimock.fetcher import get_mocked_security_group_data, get_mocked_ec2_data
+from awsclimock.fetcher import get_mocked_security_group_data, get_mocked_ec2_data, get_mocked_regions
 
 def main():
     aws_command = get_command_to_mock()
@@ -9,6 +9,8 @@ def main():
         print(get_mocked_security_group_data())
     elif aws_command == 'describe-instances':
         print(get_mocked_ec2_data())
+    elif aws_command == 'describe-regions':
+        print(get_mocked_regions())
     else:
         print('I dont know this command yet!')
 
