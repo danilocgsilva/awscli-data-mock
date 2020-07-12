@@ -1,16 +1,21 @@
 import sys
 from awsclimock.helpers import get_command_to_mock
-from awsclimock.fetcher import get_mocked_security_group_data, get_mocked_ec2_data, get_mocked_regions
+from awsapimock.Security_Group_Data_Generator \
+    import Security_Group_Data_Generator
+from awsapimock.Instance_Data_Generator \
+    import Instance_Data_Generator
+from awsapimock.Regions_Data_Generator \
+    import Regions_Data_Generator
 
 def main():
     aws_command = get_command_to_mock()
 
     if aws_command == 'describe-security-group':
-        print(get_mocked_security_group_data())
+        print(Security_Group_Data_Generator().generate())
     elif aws_command == 'describe-instances':
-        print(get_mocked_ec2_data())
+        print(Instance_Data_Generator().generate())
     elif aws_command == 'describe-regions':
-        print(get_mocked_regions())
+        print(Regions_Data_Generator().generate())
     else:
         print('I dont know this command yet!')
 
