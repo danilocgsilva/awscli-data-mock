@@ -6,6 +6,8 @@ from awsapimock.Instance_Data_Generator \
     import Instance_Data_Generator
 from awsapimock.Regions_Data_Generator \
     import Regions_Data_Generator
+from awsapimock.RDS_Data_Generator \
+    import RDS_Data_Generator
 
 def main():
     aws_command = get_command_to_mock()
@@ -16,6 +18,8 @@ def main():
         print(Instance_Data_Generator().generate())
     elif aws_command == 'describe-regions':
         print(Regions_Data_Generator().generate())
+    elif aws_command == 'describe-db-instances':
+        print(RDS_Data_Generator().generate())
     else:
         print('I dont know this command yet!')
 
