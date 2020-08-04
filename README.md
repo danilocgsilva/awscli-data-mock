@@ -9,6 +9,7 @@ Mocks AWS cli json responses for testing and privacy porpouses
 ```
 pip install .
 ```
+This scripts depends upon another script created by me: https://github.com/danilocgsilva/aws-data-mock. Just install this one and you are ready to go.
 
 ## Usage
 
