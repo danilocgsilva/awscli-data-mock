@@ -12,7 +12,7 @@ from awsapimock.RDS_Data_Generator \
 def main():
     aws_command = get_command_to_mock()
 
-    if aws_command == 'describe-security-group':
+    if aws_command == 'describe-security-groups':
         print(Security_Group_Data_Generator().generate())
     elif aws_command == 'describe-instances':
         print(Instance_Data_Generator().generate())
