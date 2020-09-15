@@ -31,8 +31,10 @@ def main():
     if data == None:
         print('I dont know this command yet!')
         exit()
-
-    print(json.dumps(data))
+    try:
+        print(json.dumps(data))
+    except TypeError:
+        print(data)
 
 
 if __name__ == '__main__':
