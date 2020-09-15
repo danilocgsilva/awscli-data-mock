@@ -9,6 +9,8 @@ from awsapimock.Regions_Data_Generator \
     import Regions_Data_Generator
 from awsapimock.RDS_Data_Generator \
     import RDS_Data_Generator
+from awsapimock.elasticbeanstalk.Elasticbeanstalk \
+    import Elasticbeanstalk
 
 def main():
     aws_command = get_command_to_mock()
@@ -23,6 +25,8 @@ def main():
         data = Regions_Data_Generator().generate()
     elif aws_command == 'describe-db-instances':
         data = RDS_Data_Generator().generate()
+    elif aws_command == 'describe-applications':
+        data = Elasticbeanstalk().describe_applications()
     
     if data == None:
         print('I dont know this command yet!')
